@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 
 const CreateProfile = () => {
 
+    const [loader, setLoader] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
 
         console.log(data)
 
-        fetch('http://127.0.0.1:8080/submit_form.php', {
+        fetch('http://localhost/api/submit_form.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
             .then(res => res.text())
-            .then(data => console.log(data))
+            .then(data => {
+                setLoader(true);
+                setTimeout(() => {
+                    setLoader(false)
+                    toast('New User created successfully.');
+                    console.log(data)
+                }, 4000)
+
+            })
     };
 
 
@@ -23,6 +33,7 @@ const CreateProfile = () => {
 
     return (
         <div className="my-5">
+            <Toaster />
             <h3 className="my-4">Adding User Profile</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="row">
                 <div className="mb-3">
@@ -45,7 +56,13 @@ const CreateProfile = () => {
                     <input {...register("created_at", { required: true })} type="text" className="form-control" id="created_at" />
                     {errors.created_at && <span>This field is required</span>}
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                {
+                    loader &&
+                    <div class="spinner-border ms-auto text-end" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                }
+                <button type="submit" className="btn btn-primary w-50 ms-auto" disabled={loader}>Submit</button>
             </form>
         </div>
     );
