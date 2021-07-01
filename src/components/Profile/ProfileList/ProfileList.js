@@ -62,14 +62,13 @@ const ProfileList = () => {
             {
                 rows.length && (
                     <section className="mt-5">
-                        <button onClick={() => handleSorting()} className="btn btn-primary">Click Me</button>
                         <table className="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">{headers.id?.title}</th>
+                                    <th scope="col" >{headers.id?.title}</th>
                                     <th scope="col" onClick={() => handleSorting()} style={{ cursor: "pointer" }}>{headers.name?.title}</th>
                                     <th scope="col">{headers.message?.title}</th>
-                                    <th scope="col">{headers.created_at?.title}</th>
+                                    <th scope="col" onClick={() => handleSorting()} style={{ cursor: "pointer" }}>{headers.created_at?.title}</th>
                                 </tr>
                             </thead>
                             <tbody>
