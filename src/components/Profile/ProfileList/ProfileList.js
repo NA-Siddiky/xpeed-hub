@@ -67,7 +67,7 @@ const ProfileList = () => {
                             <thead>
                                 <tr>
                                     <th scope="col">{headers.id?.title}</th>
-                                    <th scope="col">{headers.name?.title}</th>
+                                    <th scope="col" onClick={() => handleSorting()} style={{ cursor: "pointer" }}>{headers.name?.title}</th>
                                     <th scope="col">{headers.message?.title}</th>
                                     <th scope="col">{headers.created_at?.title}</th>
                                 </tr>
