@@ -27,9 +27,7 @@ const CreateProfile = () => {
 
             })
     };
-
-
-
+    
 
     return (
         <div className="my-5">
@@ -58,8 +56,8 @@ const CreateProfile = () => {
                 </div>
                 {
                     loader &&
-                    <div className="spinner-border ms-auto text-end" role="status">
-                        <span className="visually-hidden">Loading...</span>
+                    <div class="spinner-border ms-auto text-end" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
                 }
                 <button type="submit" className="btn btn-primary w-50 ms-auto" disabled={loader}>Submit</button>
