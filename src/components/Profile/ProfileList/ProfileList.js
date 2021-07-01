@@ -15,7 +15,7 @@ const ProfileList = () => {
                 setRows(data.data.rows)
                 setInitRows(data.data.rows)
             })
-        console.log('abc');
+        // console.log('abc');
     }, [])
 
 
