@@ -5,10 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 const CreateProfile = () => {
 
     const [loader, setLoader] = useState(false);
-
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-
         console.log(data)
 
         fetch('http://localhost/api/submit_form.php', {
@@ -24,7 +22,6 @@ const CreateProfile = () => {
                     toast('New User created successfully.');
                     console.log(data)
                 }, 4000)
-
             })
     };
     
