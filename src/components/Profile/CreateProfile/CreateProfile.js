@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -24,7 +24,6 @@ const CreateProfile = () => {
                 }, 4000)
             })
     };
-    
 
     return (
         <div className="my-5">
